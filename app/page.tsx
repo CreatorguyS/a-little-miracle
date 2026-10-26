@@ -61,7 +61,7 @@ export default function Home() {
   };
 
   const copyGreeting = async () => {
-    const greeting = "Rani Didi & Jiju, congratulations on this beautiful new chapter! Bhanji, you are already so deeply loved. I wish your little family a lifetime of health, happiness, warmth, and wonder. With all my love ❤️";
+    const greeting = "Heartiest congratulations to Rani Didi & Jiju! Seeing you both begin this miraculous chapter together as Mum and Dad fills my heart with joy. Bhanji is so blessed with two wonderful parents. Wishing your little family a lifetime of health, laughter, peace, and unconditional love ❤️";
     try {
       await navigator.clipboard.writeText(greeting);
       setCopied(true);
@@ -79,20 +79,20 @@ export default function Home() {
 
       <header className="site-header">
         <a href="#top" className="brand" aria-label="A Little Miracle home"><span className="brand-mark"><Sparkles size={15} /></span><span>A LITTLE MIRACLE</span></a>
-        <div className="header-note"><span className="tiny-star">✦</span> MADE WITH LOVE <span className="tiny-star">✦</span></div>
-        <a className="header-link" href="#letter">A little note <ArrowRight size={14} /></a>
+        <div className="header-note"><span className="tiny-star">✦</span> CELEBRATING RANI DIDI &amp; JIJU <span className="tiny-star">✦</span></div>
+        <a className="header-link" href="#letter">A wish for the couple <ArrowRight size={14} /></a>
       </header>
 
       <section className="hero" id="top">
         <div className="hero-copy">
           <motion.div className="eyebrow" initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.8 }}>
-            <span className="eyebrow-line" /> A NEW LITTLE UNIVERSE BEGINS
+            <span className="eyebrow-line" /> TWO HEARTS, ONE BEAUTIFUL MIRACLE
           </motion.div>
           <motion.h1 initial={reduceMotion ? false : { opacity: 0, y: 25 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 1, ease: [0.22, 1, 0.36, 1] }}>
             The world just<br />got a little <em>more</em><br /><span className="gold-word">magical.</span>
           </motion.h1>
           <motion.p className="hero-subtitle" initial={reduceMotion ? false : { opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.85, duration: 0.8 }}>
-            For RANI DIDI &amp; JIJU, with all my love for your little miracle, BHANJI.
+            Warmest congratulations to RANI DIDI &amp; JIJU on the arrival of your little miracle, BHANJI.
           </motion.p>
           <motion.div className="hero-actions" initial={reduceMotion ? false : { opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.05, duration: 0.8 }}>
             <button className="button button-primary" onClick={openExperience}>Open your little surprise <ArrowRight size={16} /></button>
@@ -116,9 +116,9 @@ export default function Home() {
       </section>
 
       <section className="welcome-section" id="welcome">
-        <div className="section-kicker"><span>01</span><span className="kicker-rule" /> THE MOST BEAUTIFUL BEGINNING</div>
+        <div className="section-kicker"><span>01</span><span className="kicker-rule" /> A NEW CHAPTER FOR A WONDERFUL COUPLE</div>
         <div className="welcome-header-center">
-          <p className="small-script">A new chapter, a new kind of love</p>
+          <p className="small-script">Two hearts united in love, now blessed with a third</p>
           <h2>Some miracles are <em>smaller</em> than our hands,<br />but <span>larger than life.</span></h2>
         </div>
 
@@ -130,34 +130,34 @@ export default function Home() {
         <div className="welcome-message-center" id="letter">
           <div className="ornament-star">✳</div>
           <p className="welcome-lead">Dear RANI DIDI &amp; JIJU,</p>
-          <p>I am so overjoyed to celebrate the arrival of your little bundle of wonder! A whole new universe of first smiles, tiny fingers, sleepy cuddles, and memories you will cherish forever is waiting for you.</p>
-          <p>And BHANJI, even before you can read these words, I want you to know: I already love you so much, and your arrival has made my world feel so much brighter.</p>
-          <button className="text-link" onClick={() => setShowLetter((value) => !value)}>{showLetter ? "Close my little letter" : "I wrote a little more for you"} <ArrowRight size={15} /></button>
+          <p>Watching the two of you embark on this breathtaking journey into parenthood is the most heartwarming blessing! You have always been the most wonderful, loving couple, and seeing you step into this new world as Mum and Dad brings tears of pure joy.</p>
+          <p>And dearest BHANJI, you have arrived into the warmest embrace. You have the kindest mother and the most caring father — and together, they are going to give you the most magical life.</p>
+          <button className="text-link" onClick={() => setShowLetter((value) => !value)}>{showLetter ? "Close my blessing letter" : "A special blessing for both of you"} <ArrowRight size={15} /></button>
           <AnimatePresence initial={false}>
-            {showLetter && <motion.div className="expanded-letter" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35 }}><div><p>I pray and wish that your home is always filled with gentle mornings, happy chaos, warm hugs, and a thousand reasons to smile. May this new journey bring you patience for the hard days, joy in the little things, and a love that grows deeper every single day.</p><p>I am sending all my love and blessings to the three of you. I can&apos;t wait to watch Bhanji grow and celebrate every milestone with you. This is only the beginning of something truly magical. <span className="inline-heart">♥</span></p><span className="letter-signoff">With all my love, always.</span></div></motion.div>}
+            {showLetter && <motion.div className="expanded-letter" initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35 }}><div><p>I pray that your bond as husband and wife grows even sweeter and stronger with every shared midnight feed, every little milestone, and every sleepy cuddle. May your home always be a sanctuary of comfort, patience on the exhausting days, and boundless happiness.</p><p>Congratulations on your greatest blessing yet. I am sending all my prayers, love, and respect to both of you, and an endless stream of blessings to little Bhanji. This is your most beautiful adventure yet. <span className="inline-heart">♥</span></p><span className="letter-signoff">With all my love and blessings, always.</span></div></motion.div>}
           </AnimatePresence>
         </div>
         <div className="welcome-bottom-note"><span className="tiny-star">✦</span> THE TINIEST FEET LEAVE THE BIGGEST FOOTPRINTS ON OUR HEARTS <span className="tiny-star">✦</span></div>
       </section>
 
       <section className="wishes-section">
-        <div className="section-kicker"><span>02</span><span className="kicker-rule" /> LITTLE WISHES FOR A BIG LIFE</div>
-        <div className="wishes-intro"><h2>For all the magic<br />still <em>to come.</em></h2><p>Not a list of expectations. Just my heartfelt wishes for the beautiful human BHANJI will become.</p></div>
+        <div className="section-kicker"><span>02</span><span className="kicker-rule" /> BLESSINGS FOR THE COUPLE &amp; BHANJI</div>
+        <div className="wishes-intro"><h2>For all the magic<br />in your <em>journey ahead.</em></h2><p>Heartfelt blessings for your home, your bond together as a couple, and the sweet life BHANJI will grow into.</p></div>
         <div className="wish-grid">
-          <article className="wish-card wish-lavender"><span className="wish-number">01 / WONDER</span><div className="wish-illustration moon-icon"><span className="moon-shape">☾</span><span className="starlet starlet-a">✦</span><span className="starlet starlet-b">✧</span></div><h3>A world full<br />of wonder.</h3><p>May curiosity lead you to beautiful places, and may you always find something new to love about this world.</p></article>
-          <article className="wish-card wish-cream"><span className="wish-number">02 / COURAGE</span><div className="wish-illustration heart-icon"><Heart size={43} strokeWidth={1.1} /><span className="heart-spark">✧</span></div><h3>A heart that is<br />always kind.</h3><p>May you grow brave enough to be yourself, gentle enough to care, and confident enough to follow your dreams.</p></article>
-          <article className="wish-card wish-rose"><span className="wish-number">03 / BELONGING</span><div className="wish-illustration star-icon"><Sparkles size={43} strokeWidth={1.1} /><span className="star-orbit" /></div><h3>Love, wherever<br />you go.</h3><p>May you always know that you have a place to call home, arms to run into, and someone who will always love and believe in you.</p></article>
+          <article className="wish-card wish-lavender"><span className="wish-number">01 / TOGETHERNESS</span><div className="wish-illustration moon-icon"><span className="moon-shape">☾</span><span className="starlet starlet-a">✦</span><span className="starlet starlet-b">✧</span></div><h3>Strength &amp;<br />sweet patience.</h3><p>May every late-night task turn into a shared smile, and may this new chapter deepen the love, laughter, and partnership between you two.</p></article>
+          <article className="wish-card wish-cream"><span className="wish-number">02 / WARMTH</span><div className="wish-illustration heart-icon"><Heart size={43} strokeWidth={1.1} /><span className="heart-spark">✧</span></div><h3>A home filled<br />with pure joy.</h3><p>May your days be blessed with gentle mornings, tiny happy giggles, peaceful nights, and memories that become your family&apos;s greatest treasures.</p></article>
+          <article className="wish-card wish-rose"><span className="wish-number">03 / ABUNDANCE</span><div className="wish-illustration star-icon"><Sparkles size={43} strokeWidth={1.1} /><span className="star-orbit" /></div><h3>Love, health<br />&amp; protection.</h3><p>May your little family always be wrapped in good health, prosperity, endless warmth, and a blessing that shields you wherever life leads.</p></article>
         </div>
       </section>
 
       <section className="finale-section">
         <div className="finale-stars" aria-hidden="true"><span>✦</span><span>✧</span><span>·</span><span>✦</span><span>✧</span><span>·</span><span>✦</span></div>
         <div className="finale-orb"><div className="finale-orb-core">♡</div><span className="finale-orbit finale-orbit-a" /><span className="finale-orbit finale-orbit-b" /></div>
-        <p className="small-script">And so, a beautiful story begins…</p>
-        <h2>Three hearts.<br /><em>One little universe.</em></h2>
-        <p className="finale-copy">RANI DIDI, JIJU &amp; BHANJI — I wish you days filled with softness, laughter that echoes through your home, and a lifetime of love that makes every little moment feel extraordinary.</p>
-        <button className="button button-light" onClick={copyGreeting}>{copied ? "My love & wish, copied ✨" : "Keep my little wish close"} <Heart size={15} /></button>
-        <div className="finale-signature">MADE WITH <Heart size={12} fill="currentColor" /> AND A WHOLE LOT OF LOVE</div>
+        <p className="small-script">And so, a beautiful family story begins…</p>
+        <h2>Two soulmates.<br /><em>One little universe.</em></h2>
+        <p className="finale-copy">RANI DIDI &amp; JIJU — Wishing you both days filled with softness, shared laughter that fills every corner of your home, and a love that makes every little moment with Bhanji feel completely extraordinary.</p>
+        <button className="button button-light" onClick={copyGreeting}>{copied ? "My love & wish, copied ✨" : "Keep our little wish close"} <Heart size={15} /></button>
+        <div className="finale-signature">MADE WITH <Heart size={12} fill="currentColor" /> AND A WHOLE LOT OF LOVE FOR RANI DIDI &amp; JIJU</div>
       </section>
 
       <footer className="site-footer"><a href="#top" className="brand footer-brand"><span className="brand-mark"><Sparkles size={14} /></span><span>A LITTLE MIRACLE</span></a><span>For RANI DIDI, JIJU &amp; BHANJI</span><a href="#top" className="back-top">BACK TO THE STARS ↑</a></footer>

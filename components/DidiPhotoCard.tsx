@@ -5,7 +5,8 @@ import { Camera, Heart, Sparkles, Upload, RotateCcw } from "lucide-react";
 
 const isProd = process.env.NODE_ENV === "production";
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isProd ? "/a-little-miracle" : "");
-const defaultPhoto = `${basePath}/rani-didi.jpg?v=1`;
+const defaultPhoto = `${basePath}/couple.jpg?v=2`;
+const fallbackPhoto = `${basePath}/rani-didi.jpg?v=2`;
 const placeholderPhoto = `${basePath}/rani-didi-placeholder.svg`;
 
 export default function DidiPhotoCard() {
@@ -15,10 +16,10 @@ export default function DidiPhotoCard() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    // Check localStorage for saved custom photo
+    // Check localStorage for saved custom photo (only accept data URLs)
     try {
-      const saved = localStorage.getItem("rani_didi_photo");
-      if (saved) {
+      const saved = localStorage.getItem("couple_photo");
+      if (saved && saved.startsWith("data:")) {
         setPhotoUrl(saved);
         setIsCustom(true);
       }
@@ -28,8 +29,9 @@ export default function DidiPhotoCard() {
   }, []);
 
   const handleImageError = () => {
-    // Fall back to the starry placeholder graphic if /rani-didi.jpg doesn't exist yet
-    if (photoUrl !== placeholderPhoto) {
+    if (photoUrl === defaultPhoto) {
+      setPhotoUrl(fallbackPhoto);
+    } else if (photoUrl !== placeholderPhoto) {
       setPhotoUrl(placeholderPhoto);
     }
   };
@@ -43,7 +45,7 @@ export default function DidiPhotoCard() {
         setPhotoUrl(result);
         setIsCustom(true);
         try {
-          localStorage.setItem("rani_didi_photo", result);
+          localStorage.setItem("couple_photo", result);
         } catch {
           // Exceeded quota or disabled
         }
@@ -60,6 +62,7 @@ export default function DidiPhotoCard() {
   const resetPhoto = (e: React.MouseEvent) => {
     e.stopPropagation();
     try {
+      localStorage.removeItem("couple_photo");
       localStorage.removeItem("rani_didi_photo");
     } catch {
       // ignore
@@ -87,7 +90,7 @@ export default function DidiPhotoCard() {
       onClick={() => fileInputRef.current?.click()}
       role="button"
       tabIndex={0}
-      title="Click or drag an image to add or change Rani Didi's photo"
+      title="Click or drag an image to customize the couple's photo"
     >
       <input
         ref={fileInputRef}
@@ -95,7 +98,7 @@ export default function DidiPhotoCard() {
         accept="image/*"
         onChange={onFileChange}
         style={{ display: "none" }}
-        aria-label="Upload Rani Didi's photo"
+        aria-label="Upload photo of Rani Didi and Jiju"
       />
 
       <div className="photo-tape" aria-hidden="true" />
@@ -104,7 +107,7 @@ export default function DidiPhotoCard() {
       <div className="photo-image-wrapper">
         <img
           src={photoUrl}
-          alt="Rani Didi"
+          alt="Rani Didi & Jiju"
           className="photo-image"
           onError={handleImageError}
         />
@@ -119,14 +122,14 @@ export default function DidiPhotoCard() {
 
       <div className="photo-details">
         <div className="photo-title-row">
-          <h4 className="photo-name">Rani Didi</h4>
+          <h4 className="photo-name">Rani Didi &amp; Jiju</h4>
           <span className="photo-heart"><Heart size={14} fill="currentColor" /></span>
         </div>
-        <p className="photo-tagline">The most wonderful new mum <span>✧</span></p>
+        <p className="photo-tagline">The most wonderful new parents <span>✧</span></p>
         <div className="photo-meta-bar">
           <span className="photo-meta-pill">
             <Sparkles size={11} />
-            <span>A lifetime of love</span>
+            <span>Two hearts, one miracle</span>
           </span>
           {isCustom && (
             <button
