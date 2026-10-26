@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const isProd = process.env.NODE_ENV === "production";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isProd ? "/a-little-miracle" : "");
+
 export const metadata: Metadata = {
   title: "A Little Miracle | For RANI DIDI, JIJU & BHANJI",
   description: "A little digital keepsake celebrating Rani Didi, Jiju and their little miracle, Bhanji.",
@@ -9,7 +12,7 @@ export const metadata: Metadata = {
     description: "A little miracle has arrived. Sending all my love to Rani Didi, Jiju and Bhanji.",
     type: "website"
   },
-  icons: { icon: "/favicon.svg" }
+  icons: { icon: `${basePath}/favicon.svg` }
 };
 
 export const viewport: Viewport = {

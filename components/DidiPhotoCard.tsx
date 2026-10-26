@@ -3,8 +3,13 @@
 import { useEffect, useRef, useState } from "react";
 import { Camera, Heart, Sparkles, Upload, RotateCcw } from "lucide-react";
 
+const isProd = process.env.NODE_ENV === "production";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isProd ? "/a-little-miracle" : "");
+const defaultPhoto = `${basePath}/rani-didi.jpg?v=1`;
+const placeholderPhoto = `${basePath}/rani-didi-placeholder.svg`;
+
 export default function DidiPhotoCard() {
-  const [photoUrl, setPhotoUrl] = useState<string>("/rani-didi.jpg?v=1");
+  const [photoUrl, setPhotoUrl] = useState<string>(defaultPhoto);
   const [isCustom, setIsCustom] = useState<boolean>(false);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -24,8 +29,8 @@ export default function DidiPhotoCard() {
 
   const handleImageError = () => {
     // Fall back to the starry placeholder graphic if /rani-didi.jpg doesn't exist yet
-    if (photoUrl !== "/rani-didi-placeholder.svg") {
-      setPhotoUrl("/rani-didi-placeholder.svg");
+    if (photoUrl !== placeholderPhoto) {
+      setPhotoUrl(placeholderPhoto);
     }
   };
 
@@ -60,7 +65,7 @@ export default function DidiPhotoCard() {
       // ignore
     }
     setIsCustom(false);
-    setPhotoUrl("/rani-didi.jpg");
+    setPhotoUrl(defaultPhoto);
   };
 
   const handleDrop = (e: React.DragEvent) => {
